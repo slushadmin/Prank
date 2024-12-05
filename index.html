@@ -62,10 +62,61 @@
   </style>
 </head>
 <body>
-  <a href="https://www.google.com/?igu=1">
-    <span id="logo" aria-label="Google"></span>
-  </a>
-  <p><b>911.</b> <ins>That’s an error.</ins></p>
-  <p>Your client has issued a lockdown on your browser with the IP address of 10.928.121. <ins>That’s all we know.</ins></p>
+  <div id="original-content">
+    <a href="https://www.google.com/?igu=1">
+      <span id="logo" aria-label="Google"></span>
+    </a>
+    <p><b>911.</b> <ins>That's an error.</ins></p>
+    <p>Your client has issued a lockdown on your browser with the IP address of 10.928.121. <ins>That's all we know.</ins></p>
+  </div>
+
+  <script>
+    document.body.addEventListener('click', function() {
+      document.body.innerHTML = `
+        <div class="container">
+          <div class="error-icon">X</div>
+          <h1>Your computer has been Locked</h1>
+          <p>Your computer with the IP address <span class="highlight">10.928.121</span> might be infected by the Trojan - Because System Activation KEY has expired &amp; Your information for example, passwords, messages, and credit card(s) have been stolen. Call the Help Desk number <span class="highlight">0800-090-3829</span> to protect your files and identity from further damage.</p>
+        </div>
+      `;
+      document.body.style.margin = '0';
+      document.body.style.fontFamily = 'Arial, sans-serif';
+      document.body.style.backgroundColor = '#b71c1c';
+      document.body.style.color = 'white';
+      document.body.style.display = 'flex';
+      document.body.style.justifyContent = 'center';
+      document.body.style.alignItems = 'center';
+      document.body.style.height = '100vh';
+      document.body.style.textAlign = 'center';
+
+      const style = document.createElement('style');
+      style.textContent = `
+        .container {
+          max-width: 600px;
+          padding: 20px;
+          background-color: #b71c1c;
+          border-radius: 8px;
+        }
+        .error-icon {
+          width: 65px;
+          height: 55px;
+          background-color: white;
+          clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 30px;
+          color: #b71c1c;
+          font-weight: bold;
+          margin: 0 auto 20px;
+        }
+        .highlight {
+          font-weight: bold;
+          color: white;
+        }
+      `;
+      document.head.appendChild(style);
+    });
+  </script>
 </body>
 </html>
